@@ -1,0 +1,13 @@
+{
+    "name": "sensi/pgdecorators",
+    "description": "Postgresql Ornament decodrators",
+    "type": "library",
+    "license": "none",
+    "authors": [
+        {
+            "name": "Marijn Ophorst",
+            "email": "marijn@sensimedia.nl"
+        }
+    ],
+    "require": {}
+}
