@@ -5,6 +5,7 @@ namespace Sensi\Pgdecorators;
 use Monolyth\Disclosure\Injector;
 use Ornament\Core\DecoratorInterface;
 use JsonSerializable;
+use ArrayObject;
 
 class PgArray extends ArrayObject implements JsonSerializable, DecoratorInterface
 {
