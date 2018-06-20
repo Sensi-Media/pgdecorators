@@ -13,10 +13,11 @@ class PgArray extends ArrayObject implements JsonSerializable, DecoratorInterfac
     private $adapter;
 
     /**
-     * @param mixed $data
+     * @param object $state
+     * @param string $prop
      * @return void
      */
-    public function __construct($state, $prop)
+    public function __construct(object $state, string $prop)
     {
         $data = $state->$prop;
         static $stmt;
@@ -31,21 +32,35 @@ class PgArray extends ArrayObject implements JsonSerializable, DecoratorInterfac
         parent::__construct((array)$data);
     }
 
+    /**
+     * @return string
+     */
     public function __toString() : string
     {
         return '{'.implode(', ', (array)$this).'}';
     }
 
+    /**
+     * @return array
+     */
     public function jsonSerialize() : array
     {
         return (array)$this;
     }
 
+    /**
+     * @return array
+     */
     public function getSource()
     {
         return (array)$this;
     }
 
+    /**
+     * Reset to pristine state.
+     *
+     * @return void
+     */
     public function scrub() : void
     {
         parent::__construct([]);
