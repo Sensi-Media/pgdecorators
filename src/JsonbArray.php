@@ -14,10 +14,11 @@ class JsonbArray extends ArrayObject implements JsonSerializable, DecoratorInter
     private $adapter;
 
     /**
-     * @param mixed $data
+     * @param object $state
+     * @param string $prop
      * @return void
      */
-    public function __construct($state, $prop)
+    public function __construct(object $state, string $prop)
     {
         $data = $state->$prop;
         static $stmt;
@@ -35,6 +36,9 @@ class JsonbArray extends ArrayObject implements JsonSerializable, DecoratorInter
         parent::__construct((array)$data);
     }
 
+    /**
+     * @return string
+     */
     public function __toString() : string
     {
         $items = [];
@@ -44,16 +48,27 @@ class JsonbArray extends ArrayObject implements JsonSerializable, DecoratorInter
         return '{'.implode(', ', $items).'}';
     }
 
+    /**
+     * @return array
+     */
     public function jsonSerialize() : array
     {
         return (array)$this;
     }
 
+    /**
+     * @return array
+     */
     public function getSource()
     {
         return (array)$this;
     }
 
+    /**
+     * Completely 'scrub' the object, i.e. reset to pristine state.
+     *
+     * @return void
+     */
     public function scrub() : void
     {
         parent::__construct([]);
