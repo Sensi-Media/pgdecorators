@@ -50,14 +50,6 @@ class PgArray extends ArrayObject implements JsonSerializable, DecoratorInterfac
     }
 
     /**
-     * @return array
-     */
-    public function getSource()
-    {
-        return (array)$this;
-    }
-
-    /**
      * Reset to pristine state.
      *
      * @return void
