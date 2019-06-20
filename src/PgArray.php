@@ -58,5 +58,15 @@ class PgArray extends ArrayObject implements JsonSerializable, DecoratorInterfac
     {
         parent::__construct([]);
     }
+
+    /**
+     * Get the source, needed to comply with DecoratorInterface.
+     *
+     * @return array
+     */
+    public function getSource() : array
+    {
+        return (array)$this;
+    }
 }
 
