@@ -1,5 +1,5 @@
 {
-    "name": "sensi/pgdecorators",
+    "name": "sensimedia/pgdecorators",
     "description": "Postgresql Ornament decodrators",
     "type": "library",
     "license": "none",
