@@ -2,7 +2,7 @@
     "name": "sensimedia/pgdecorators",
     "description": "Postgresql Ornament decodrators",
     "type": "library",
-    "license": "none",
+    "license": "proprietary",
     "authors": [
         {
             "name": "Marijn Ophorst",
