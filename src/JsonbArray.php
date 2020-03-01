@@ -14,13 +14,11 @@ class JsonbArray extends ArrayObject implements JsonSerializable, DecoratorInter
     private $adapter;
 
     /**
-     * @param object $state
-     * @param string $prop
+     * @param mixed $data
      * @return void
      */
-    public function __construct(object $state, string $prop)
+    public function __construct($data)
     {
-        $data = $state->$prop;
         static $stmt;
         if (!isset($stmt)) {
             $this->inject(function ($adapter) {});
