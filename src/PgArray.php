@@ -36,7 +36,7 @@ class PgArray extends ArrayObject implements JsonSerializable, DecoratorInterfac
      */
     public function __toString() : string
     {
-        return '{'.implode(', ', (array)$this).'}';
+        return sprintf('{%s}', substr(json_encode($this), 1, -1));
     }
 
     /**
