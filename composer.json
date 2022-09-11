@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=7.3",
-        "monolyth/disclosure": "^2.1",
+        "monolyth/disclosure": "^3.0",
         "ornament/core": "^0.15.0"
     },
     "autoload": {
