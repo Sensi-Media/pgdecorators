@@ -3,11 +3,10 @@
 namespace Sensi\Pgdecorators;
 
 use Monolyth\Disclosure\Injector;
-use Ornament\Core\DecoratorInterface;
 use JsonSerializable;
 use ArrayObject;
 
-class PgArray extends ArrayObject implements JsonSerializable, DecoratorInterface
+class PgArray extends ArrayObject implements JsonSerializable
 {
     use Injector;
 
@@ -17,7 +16,7 @@ class PgArray extends ArrayObject implements JsonSerializable, DecoratorInterfac
      * @param mixed $value
      * @return void
      */
-    public function __construct($value)
+    public function __construct(mixed $value)
     {
         static $stmt;
         if (!isset($stmt)) {
