@@ -26,6 +26,11 @@ class PgArray extends ArrayObject implements JsonSerializable
         if (is_string($value)) {
             $stmt->execute([$value]);
             $value = json_decode($stmt->fetchColumn());
+            array_walk($value, function (&$value) {
+                if (is_numeric($value)) {
+                    $value = (float)$value;
+                }
+            });
         }
         parent::__construct((array)$value);
     }
