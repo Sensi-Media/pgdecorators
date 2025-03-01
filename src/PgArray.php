@@ -40,7 +40,9 @@ class PgArray extends ArrayObject implements JsonSerializable
      */
     public function __toString() : string
     {
-        return sprintf('{%s}', substr(json_encode($this), 1, -1));
+        $data = (array)$this;
+        array_walk($data, fn (&$el) => $el = '"'.addslashes($el).'"');
+        return sprintf('{%s}', implode(',', $data));
     }
 
     /**
